@@ -1,0 +1,24 @@
+{
+  "name": "course-powerbuilds",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmj06/udacity-mwsnanodegree-powerbuilds.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gmj06/udacity-mwsnanodegree-powerbuilds/issues"
+  },
+  "homepage": "https://github.com/gmj06/udacity-mwsnanodegree-powerbuilds#readme"
+}
