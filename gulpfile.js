@@ -1,12 +1,16 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task("default", function(){
-    console.log("Hellooooo Udacity");
+    gulp.watch("app/sass/**/*.scss", ["styles"])
 });
 
 gulp.task("styles", function(){
     return gulp.src("app/sass/**/*.scss")
     .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions']
+    }))
     .pipe(gulp.dest('app/css'))
 });
