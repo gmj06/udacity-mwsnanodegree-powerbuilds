@@ -6,8 +6,10 @@ var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var eslint = require('gulp-eslint');
 var jasmine = require('gulp-jasmine-phantom');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 
-gulp.task('default', ['copy-html', 'copy-images', 'styles', 'lint'], function(){
+gulp.task('default', ['copy-html', 'copy-images', 'styles', 'lint', 'scripts'], function(){
     gulp.watch('app/sass/**/*.scss', ['styles']);
     gulp.watch('app/js/**/*.js', ['lint']);
     gulp.watch('app/index.html', ['copy-html']);
@@ -21,6 +23,7 @@ gulp.task('default', ['copy-html', 'copy-images', 'styles', 'lint'], function(){
 
 gulp.task('copy-html', function(){
     gulp.src('app/index.html')
+    .pipe(concat('all.js'))
     .pipe(gulp.dest('./dist'));
     //.pipe(browserSync.stream());
 });
@@ -40,6 +43,19 @@ gulp.task('styles', function(){
         .pipe(browserSync.stream());
 });
 
+gulp.task('scripts', function(){
+    gulp.src('app/js/**/*.js')
+    .pipe(concat('all.js'))
+    .pipe(gulp.dest('dist/js'));
+});
+
+
+gulp.task('scripts-dist', function(){
+    gulp.src('app/js/**/*.js')
+    .pipe(concat('all.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/js'));
+});
 gulp.task('lint', () => {
     // ESLint ignores files with "node_modules" paths.
     // So, it's best to have gulp ignore the directory as well.
