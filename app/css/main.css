@@ -9,7 +9,7 @@ h1 {
   margin: 1em auto;
   margin-bottom: 2em;
   text-align: center;
-  font-family: 'Lobster', cursive;
+  font-family: 'Times new roman', 'Lobster', cursive;
   font-size: 5em; }
 
 div.main {
@@ -38,6 +38,6 @@ div.main aside img {
   left: 60px;
   width: 100px;
   -webkit-transform: translate(0, -100%);
-  transform: translate(0, -100%);
+          transform: translate(0, -100%);
   -webkit-filter: invert(1);
-  filter: invert(1); }
+          filter: invert(1); }
